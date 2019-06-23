@@ -21,13 +21,6 @@ class Knight
         MyQueue::queue.clear
     end
 
-    def enqueue(coords)
-        coords.each do |coordinate|
-            next if (@visited_coordinates.include?(coordinate) || MyQueue::queue.include?(coordinate))
-            MyQueue::enqueue(coordinate)
-        end
-    end
-
     def dequeue_coordinate_to_visited
         dequeued_coordinate = MyQueue::dequeue
         @visited_coordinates.unshift(dequeued_coordinate)
@@ -38,7 +31,7 @@ class Knight
         if legal_moves_from_current_position.include?(@desired_position)
             return final_route_from_visited_coordinates
         else
-            enqueue(legal_moves_from_current_position)
+            MyQueue::check_for_doubles_then_enqueue(legal_moves_from_current_position, @visited_coordinates)
         end
     end
 
@@ -56,6 +49,7 @@ class Knight
     def check_for_cycle
         i = @final_coordinates.length - 1
         while i > 0
+            puts "------"
             for x in (0..(i - 1)) 
                 puts "#{self.legal_moves_adj(@final_coordinates[i]).include?(@final_coordinates[x])}"
             end
