@@ -3,7 +3,7 @@ Take a Knight from the game Chess and create a function that accepts the Knights
 
 Here are a few more examples of the function taking in coordinates and returning the path. 
 ```
-knight_moves([0,0],[1,2])     #=> [[0,0],[1,2]]
+knight_moves([0,0],[1,2])    #=> [[0,0],[1,2]]
 knight_moves([0,0],[3,3])    #=> [[0,0],[1,2],[3,3]]
 knight_moves([3,3],[0,0])    #=> [[3,3],[1,2],[0,0]]
 ```
@@ -12,6 +12,9 @@ knight_moves([3,3],[0,0])    #=> [[3,3],[1,2],[0,0]]
 I created this script as modular as I know how to in order to keep my code clean, easy to read and understand, and also maintainable (I will be creating chess in the near future). 
 
 **knight.rb** This is the Knight class. 
+
 **game_piece.rb** This is the parent class to Knight. 
+
 **adjacency_list.rb** This is the data structure that I chose to represent my Knight. AdjacencyList is mixed into the Knight class. 
+
 **my_queue.rb** This is a Queue. I use it to perform a breadth first search (or level order traversal) on the adjacency list. 
