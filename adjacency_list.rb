@@ -1,4 +1,5 @@
 module AdjacencyList
+    #I am using this module as a mixin for the Knight class. 
     
     def build_adj_list   
         completed_list = []
