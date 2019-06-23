@@ -5,7 +5,8 @@ class Knight
     include AdjacencyList
     include MyQueue
 
-    attr_accessor :current_position, :desired_position, :adjacency_list, :edge_list, :visited_coordinates, :final_coordinates
+    attr_accessor :current_position, :desired_position 
+    attr_reader :final_coordinates, :visited_coordinates
     
     def initialize
         @character = nil
