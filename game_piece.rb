@@ -9,7 +9,7 @@ class GamePiece
             # if final_coordinates is populated then the shortest path has been found.
             break if self.final_coordinates.empty? == false
         end
-        puts "You made it in from #{self.current_position} to #{self.desired_position} #{self.final_coordinates.length - 1} moves. Your path is:"
+        puts "You made it in from #{self.current_position} to #{self.desired_position} in #{self.final_coordinates.length - 1} moves. Your path is:"
         self.final_coordinates.each do |coordinate|
             puts "#{coordinate}".rjust(65)
         end
