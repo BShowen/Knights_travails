@@ -22,7 +22,7 @@ module AdjacencyList
     end
 
     # return array of legal moves from provided position
-    def legal_moves_adj(coordinates)
+    def legal_moves(coordinates)
         index = get_index_from_coordinates(coordinates)
         @adjacency_list[index]
     end
@@ -55,7 +55,7 @@ module AdjacencyList
         y = current_coordinates[1]
         x1 = desired_coordinates[0]
         y1 = desired_coordinates[1]
-        legal_moves_adj([x,y]).include? [x1,y1]
+        legal_moves([x,y]).include? [x1,y1]
     end
 
     # visually represent the adjacency list

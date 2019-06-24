@@ -20,7 +20,7 @@ class GamePiece
 
     def check_if_desired_position_found
         #array of edges (children) from current vertex
-        legal_moves_from_current_position = self.legal_moves_adj(self.visited_coordinates.first) 
+        legal_moves_from_current_position = self.legal_moves(self.visited_coordinates.first) 
 
         if legal_moves_from_current_position.include?(self.desired_position)
             return finalize_route_from_visited_coordinates
@@ -34,7 +34,7 @@ class GamePiece
         self.final_coordinates << self.desired_position
         until self.visited_coordinates.empty?
             last_visited_coordinate = self.visited_coordinates.shift
-            legal_moves_from_current_position = self.legal_moves_adj(last_visited_coordinate)
+            legal_moves_from_current_position = self.legal_moves(last_visited_coordinate)
             if legal_moves_from_current_position.include?(self.final_coordinates.first)
                 self.final_coordinates.unshift(last_visited_coordinate)
             end
@@ -47,7 +47,7 @@ class GamePiece
         while i > 0
             puts "------"
             for x in (0..(i - 1)) 
-                puts "#{self.legal_moves_adj(self.final_coordinates[i]).include?(self.final_coordinates[x])}"
+                puts "#{self.legal_moves(self.final_coordinates[i]).include?(self.final_coordinates[x])}"
             end
             i -= 1
         end
