@@ -18,7 +18,7 @@ I created this script as modular as possible in order to keep my code clean, und
 **main.rb** Creates a Knight object and calls its functions. 
 
 ## Instructions 
-##### These instructions assume you are using Ruby 2.5.1 on macOS. You may encounter some bugs if you use a different machine or a different version of Ruby.
+##### These instructions assume you are using Ruby 2.5.1 on macOS. You may encounter an error if you use a different OS or a different version of Ruby.
 1) Clone or download ths repo onto your computer by clicking the "clone or download" button at the top right of this page.
 
 2) Open terminal and cd into the directory where you have this repo downloaded.
@@ -28,3 +28,7 @@ I created this script as modular as possible in order to keep my code clean, und
 4) Require in the script by typing require "./main.rb" and you should get the following screen. 
 
 ![screen shot](https://github.com/BShowen/Knights_travails/blob/master/screenshots/screenshot_1.png "screen shot")
+
+Have fun with it. Create your own Knight object with `knight = Knight.new` then set the coordinates to whatever you want with `knight.current_position = [0,3]` `knight.desired_position = [3,9]` and then get the shortest path with `knight.knight_moves(knight.current_position, knight.desired_position)`
+
+Thanks for checking it out! 
