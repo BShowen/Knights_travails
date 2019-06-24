@@ -17,7 +17,7 @@ class Knight < GamePiece
         @visited_coordinates = []
         @final_coordinates = []
     end
-
+    #Reset the class so I can keep testing in IRB without reloading irb or having to manually clear variables 
     def clear
         initialize
         MyQueue::queue.clear

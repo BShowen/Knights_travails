@@ -1,20 +1,36 @@
 class GamePiece
 
+    # Find the shortest possible path between two points. 
+    def knight_moves(current_pos, desired_pos)
+        MyQueue::enqueue(current_pos)
+        loop do
+            dequeue_coordinate_to_visited
+            check_if_desired_position_found
+            # if final_coordinates is populated then the shortest path has been found.
+            break if self.final_coordinates.empty? == false
+        end
+        self.final_coordinates
+    end
+
+    # Keep track of all the verticies we visit that got us to the final vertex. 
     def dequeue_coordinate_to_visited
         dequeued_coordinate = MyQueue::dequeue
         self.visited_coordinates.unshift(dequeued_coordinate)
     end
 
     def check_if_desired_position_found
-        legal_moves_from_current_position = self.legal_moves_adj(self.visited_coordinates.first)
+        #array of edges (children) from current vertex
+        legal_moves_from_current_position = self.legal_moves_adj(self.visited_coordinates.first) 
+
         if legal_moves_from_current_position.include?(self.desired_position)
-            return final_route_from_visited_coordinates
+            return finalize_route_from_visited_coordinates
         else
             MyQueue::check_for_doubles_then_enqueue(legal_moves_from_current_position, self.visited_coordinates)
         end
     end
 
-    def final_route_from_visited_coordinates
+    # Navigate backwards from the final vertex to the starting vertex through each verticies parent. 
+    def finalize_route_from_visited_coordinates
         self.final_coordinates << self.desired_position
         until self.visited_coordinates.empty?
             last_visited_coordinate = self.visited_coordinates.shift
@@ -25,6 +41,7 @@ class GamePiece
         end
     end 
 
+    # Check if there is a cycle in the final path. Use for testing in irb. 
     def check_for_cycle
         i = self.final_coordinates.length - 1
         while i > 0
@@ -36,13 +53,4 @@ class GamePiece
         end
     end
 
-    def knight_moves(current_pos = self.current_position, desired_pos = self.desired_position)
-        MyQueue::enqueue(current_pos)
-        loop do
-            dequeue_coordinate_to_visited
-            check_if_desired_position_found
-            break if self.final_coordinates.empty? == false
-        end
-        self.final_coordinates
-    end
 end

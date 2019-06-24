@@ -13,7 +13,7 @@ module MyQueue
     def self.enqueue(data)
         $queue << data
     end
-
+    # Dont enque coordinates that weve already enqueued or that weve already visited. 
     def self.check_for_doubles_then_enqueue(coordinates, visited_coordinates)
         coordinates.each do |coordinate|
             next if (visited_coordinates.include?(coordinate) || self.queue.include?(coordinate))

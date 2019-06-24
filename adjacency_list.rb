@@ -1,6 +1,7 @@
 module AdjacencyList
-    #I am using this module as a mixin for the Knight class. 
+    #mixin for the Knight class. 
     
+    # a list of legal moves from any given position on the board. 
     def build_adj_list   
         completed_list = []
         for x in 0..7
@@ -20,11 +21,13 @@ module AdjacencyList
         completed_list
     end
 
+    # return array of legal moves from provided position
     def legal_moves_adj(coordinates)
         index = get_index_from_coordinates(coordinates)
         @adjacency_list[index]
     end
 
+    # convert provided coordinates into index number to be used in adjacency list
     def get_index_from_coordinates(coordinates)
         index = coordinates.join.to_i
         if index <= 7
@@ -46,6 +49,7 @@ module AdjacencyList
         end
     end 
 
+    # return boolean value if an edge exists in the vertex. 
     def legal_move?(current_coordinates,desired_coordinates)
         x = current_coordinates[0]
         y = current_coordinates[1]
@@ -54,12 +58,14 @@ module AdjacencyList
         legal_moves_adj([x,y]).include? [x1,y1]
     end
 
+    # visually represent the adjacency list
     # def display_adj_list
     #     @adjacency_list.each do |data|
     #         puts "#{data}"
     #     end
     # end 
 
+    # return the number of verticies and edges in the adjacency list.
     # def count_adj_list
     #     counter = adjacency_list.length
     #     @adjacency_list.each do |item|
