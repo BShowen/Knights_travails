@@ -34,19 +34,33 @@ First a knight is instantiated from the Knight class. There are a few variables 
 4) @final_coordinates is used when we iterate over @visited_coordinates. Details below. 
 
 ## The Adjacency List
-If we start at the bottom left corner of a chess board and work our way to the right and go all the way to the top right corner of the board we would have 64 squares. We can number those squares 0 through 63 and store those squares as individual sub arrays in an adjacency list, each square is an array holding some data about the square. The data will be coordinates to legal moves you can make from that square and that square only. In a data structure like this we would have one array (the adjacency list) with 64 sub arrays inside. Each sub array would hold the corrdinates to the legal moves from the square it self. Lets see an example of this but for simplicity we will only represent the very bottom row of a chess board. 
+
+### Building the list
+#### A knights legal move
+Lets take alook at the Knight for a second. Its legal move looks like this. Move two spaces in any direction then one space perpendicular to the direction you just went and of course stay on the board. 
+#### Chess board cooridnates
+In a 2-dimensional chessboard we can represent each square with coordinates [y,x]. So [0,0] is the bottom left corner, [0,1] is the square just to the right of the bottom left corner, [1,0] is the square directly in front (or above) the bottom left corner etc. 
+### Build the list
+Take then knight's current positon [3,3]. [(y + 1),(x + 2)],[(y - 1)(x + 2)]
+
+
+### Adjacency list
+If we start at the bottom left corner of a chess board and work our way to the right and go all the way to the top right corner of the board we would have 64 squares. We can number those squares 0 through 63 and store those squares in an adjacency list, each square is an array holding some data about the square. The data will be coordinates to legal moves you can make from that square. In a data structure like this we would have one array (the adjacency list) with 64 sub arrays inside. Each sub array would hold the corrdinates to the legal moves from the square it self. Lets see an example of this but for simplicity we will only represent the very bottom row of a chess board. 
 ```
-bottom_row = [[[2, 1], [1, 2]]
-              [[2, 0], [2, 2], [1, 3]]
-              [[2, 1], [2, 3], [1, 0], [1, 4]]
-              [[2, 2], [2, 4], [1, 1], [1, 5]]
-              [[2, 3], [2, 5], [1, 2], [1, 6]]
-              [[2, 4], [2, 6], [1, 3], [1, 7]]
-              [[2, 5], [2, 7], [1, 4]]
+bottom_row = [[[2, 1], [1, 2]],
+              [[2, 0], [2, 2], [1, 3]],
+              [[2, 1], [2, 3], [1, 0], [1, 4]],
+              [[2, 2], [2, 4], [1, 1], [1, 5]],
+              [[2, 3], [2, 5], [1, 2], [1, 6]],
+              [[2, 4], [2, 6], [1, 3], [1, 7]],
+              [[2, 5], [2, 7], [1, 4]],
               [[2, 6], [1, 5]]]
 ```
-Now if we want to see all the legal moves we can make from any square in the bottom row all we have to do is index into the adjacency list. The index number will be the square you want. For example if you want to see all the legal moves you can make from square 0 (the very bottom left corner) you simply call `bottom_row[0]`. Want to see the legal moves you could make from sqaure 7 (the very bottom right corner), call `bottom_row[7]`. The results for these would be
+Now if we want to see all the legal moves we can make from any square in the bottom row all we have to do is index into the adjacency list. The index number will be the square you want. For example if you want to see all the legal moves you can make from square 0 (the very bottom left corner) you simply call `bottom_row[0]`. Want to see the legal moves you could make from sqaure 7?  Call `bottom_row[7]`. The results for these would be
 ```
 bottom_row[0] #=> [[2, 1], [1, 2]]
 bottom_row[7] #=> [[2, 6], [1, 5]]
 ```
+There are probably other ways to accomplish this same task with an eaiser understanding but I chose and adjacency list for its quickness. We can index into the adjacency list in constant time. Checking if an edge appears in the list (or in this case, if a move is legal or not) will take, at the worst case, Θ(d) where d is the degree of the vertex (or, where d is the number of legal moves that can be made from the current position). 
+
+If all of this is confusing just try to understand that the adjacency list is 64 arrays inside of one array. Each array holds the legal moves for a certain spot on the board. When you want to see if a move is legal you simply reference the adjacency list. 
