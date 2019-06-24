@@ -14,3 +14,17 @@ I created this script as modular as possible in order to keep my code clean, und
 **adjacency_list.rb** This is the data structure that I chose to represent my Knight. AdjacencyList is mixed into the Knight class. 
 
 **my_queue.rb** This is a Queue. I use it to perform a breadth first search (or level order traversal) on the adjacency list. 
+
+**main.rb** Creates a Knight object and calls its functions. 
+
+## Instructions 
+##### These instructions assume you are using Ruby 2.5.1 on macOS. You may encounter some bugs if you use a different machine or a different version of Ruby.
+1) Clone or download ths repo onto your computer by clicking the "clone or download" button at the top right of this page.
+
+2) Open terminal and cd into the directory where you have this repo downloaded.
+
+3) Now start up IRB by typing irb and hitting enter.
+
+4) Require in the script by typing require "./main.rb" and you should get the following screen. 
+
+![screen shot](https://github.com/BShowen/Knights_travails/blob/master/screenshots/screenshot_1.png "screen shot")
