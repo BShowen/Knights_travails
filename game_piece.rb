@@ -9,7 +9,10 @@ class GamePiece
             # if final_coordinates is populated then the shortest path has been found.
             break if self.final_coordinates.empty? == false
         end
-        self.final_coordinates
+        puts "You made it in from #{self.current_position} to #{self.desired_position} #{self.final_coordinates.length - 1} moves. Your path is:"
+        self.final_coordinates.each do |coordinate|
+            puts "#{coordinate}".rjust(65)
+        end
     end
 
     # Keep track of all the verticies we visit that got us to the final vertex. 
@@ -31,7 +34,6 @@ class GamePiece
 
     # Navigate backwards from the final vertex to the starting vertex through each verticies parent. 
     def finalize_route_from_visited_coordinates
-        puts "visited is #{self.visited_coordinates}"
         self.final_coordinates << self.desired_position
         until self.visited_coordinates.empty?
             last_visited_coordinate = self.visited_coordinates.pop
