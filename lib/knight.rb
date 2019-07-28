@@ -16,7 +16,9 @@ class Knight < GamePiece
         @adjacency_list = build_adj_list 
         @visited_coordinates = []
         @final_coordinates = []
+        true
     end
+    
     #Reset the class so I can keep testing in IRB without reloading irb or having to manually clear variables 
     def clear
         initialize

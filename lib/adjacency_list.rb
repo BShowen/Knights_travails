@@ -59,11 +59,11 @@ module AdjacencyList
     end
 
     # visually represent the adjacency list
-    # def display_adj_list
-    #     @adjacency_list.each do |data|
-    #         puts "#{data}"
-    #     end
-    # end 
+    def display_adj_list
+        @adjacency_list.each do |data|
+            puts "#{data}"
+        end
+    end 
 
     # return the number of verticies and edges in the adjacency list.
     # def count_adj_list
