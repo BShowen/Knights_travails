@@ -1,5 +1,5 @@
 # Project Knights Travails - Path Finding
-The goal of this project is to use a graph data structure to search for the shortest path between two sets of coordinates for a chess knight. The knight must move from its current position to its final position in the least amount of moves. All moves made must be legal moves and the might must stay on the board. A legal move for a knight is to move two spots in any direction and then one spot to the left/right or up/down. 
+The goal of this project is to use a graph data structure to search for the shortest path between two sets of coordinates for a chess knight. The knight must move from its current position to its final position in the least amount of moves. All moves made must be legal moves and the knight must stay on the board. A legal move for a knight is to move two spots in any direction and then one spot to the left/right or up/down. 
 
 ## How it works
 I use an adjacency list to store the legal moves that can be made from each individual square on the chess board (64 squares in total). A breadth first search through the adjacency list is performed in order to find the shortest possible path between two nodes: The knights current position, and the knights desired ending position. 
