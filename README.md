@@ -1,4 +1,4 @@
-# Project Knights Travails
+# Project Knights Travails - Path Finding
 The goal of this project is to use a graph data structure to search for the shortest path between two squares for a chess knight.
 
 ## How it works
