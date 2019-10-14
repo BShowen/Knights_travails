@@ -10,10 +10,6 @@ class GamePiece < Board
             # if final_coordinates is populated then the shortest path has been found.
             break if @final_coordinates.empty? == false
         end
-        # puts "You made it in from #{self.current_position} to #{@desired_position} in #{@final_coordinates.length - 1} moves. Your path is:"
-        # @final_coordinates.each do |coordinate|
-        #     puts "#{coordinate}".rjust(65)
-        # end
     end
 
     # Keep track of all the verticies we visit that got us to the final vertex. 
@@ -25,7 +21,6 @@ class GamePiece < Board
     def check_if_desired_position_found
         #array of edges (children) from current vertex
         legal_moves_from_current_position = self.legal_moves(@visited_coordinates.last)
-
         if legal_moves_from_current_position.include?(@desired_position)
             return finalize_route_from_visited_coordinates
         else
@@ -36,13 +31,6 @@ class GamePiece < Board
     # Navigate backwards from the final vertex to the starting vertex through each verticies parent. 
     def finalize_route_from_visited_coordinates
         @final_coordinates << @desired_position
-        # until @visited_coordinates.empty?
-        #     last_visited_coordinate = @visited_coordinates.pop
-        #     legal_moves_from_current_position = self.legal_moves(last_visited_coordinate)
-        #     if legal_moves_from_current_position.include?(@final_coordinates.first)
-        #         @final_coordinates.unshift(last_visited_coordinate)
-        #     end
-        # end
         for i in (@visited_coordinates.length - 1).downto(0) do
             last_visited_coordinate = @visited_coordinates[i]
             legal_moves_from_current_position = self.legal_moves(last_visited_coordinate)
@@ -63,5 +51,4 @@ class GamePiece < Board
             i -= 1
         end
     end
-
 end

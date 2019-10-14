@@ -9,7 +9,7 @@ board = Board.new
 knight = Knight.new
 
 knight.current_position = [0,0]
-knight.desired_position = [7,3]
+knight.desired_position = [0,7]
 knight.knight_moves(knight.current_position,knight.desired_position)
 knight.visited_coordinates.each do |coordinate|
     board.square(coordinate).character = "*"
@@ -17,8 +17,8 @@ knight.visited_coordinates.each do |coordinate|
     puts board
     sleep 0.2
 end
-knight.final_coordinates.each do |coordinate|
-    board.square(coordinate).character = "\u265E"
+knight.final_coordinates.each_with_index do |coordinate, index|
+    board.square(coordinate).character = index.to_s
     board.square(coordinate).color = :blue
 end
 puts `clear`
