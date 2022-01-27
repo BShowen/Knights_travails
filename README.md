@@ -1,3 +1,4 @@
+## Starting position (1,1) ending position (3,7)
 ![screen shot](https://github.com/BShowen/Knights_travails/blob/master/screenshots/screenshot_1.png "screen shot")
 
 # Project Knights Travails - Path Finding
