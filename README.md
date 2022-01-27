@@ -1,7 +1,8 @@
 # Project Knights Travails - Path Finding
 The goal of this project is to use a graph data structure to search for the shortest path between two sets of coordinates for a chess knight. The knight must move from its current position to its final position in the least amount of moves. All moves made must be legal moves and the knight must stay on the board. A legal move for a knight is as follows: Move 2 spots in any direction and then 1 spot perpendicular to that direction. Or, move 1 spot in any direction and then 2 spots perpendicular to that direction. 
 
-## Starting position (1,1) ending position (3,7)
+# Example. 
+This screenshot shows the application when it is given (1,1) as the starting position and (3,7) as the ending position. The shortest path between these two points requires 4 moves. 
 ![screen shot](https://github.com/BShowen/Knights_travails/blob/master/screenshots/screenshot_1.png "screen shot")
 
 ## How it works
