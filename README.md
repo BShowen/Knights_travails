@@ -4,6 +4,7 @@ The goal of this project is to use a graph data structure to search for the shor
 # Example. 
 This screenshot shows the application when it is given (1,1) as the starting position and (3,7) as the ending position. The shortest path between these two points requires 4 moves. 
 ![screen shot](https://github.com/BShowen/Knights_travails/blob/master/screenshots/screenshot_1.png "screen shot")
+![screen shot](https://github.com/BShowen/Knights_travails/blob/master/screenshots/screenshot_1.gif "screen shot")
 
 ## How it works
 I use an adjacency list to store the legal moves that can be made from each individual square on the chess board (64 squares in total). A breadth first search through the adjacency list is performed in order to find the shortest possible path between two nodes: The knights current position, and the knights desired ending position. 
